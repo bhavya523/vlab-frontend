@@ -1,0 +1,41 @@
+<!-- HTML for the modal pop-up -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+      <h2>Select Your Role</h2>
+      <form>
+        <input type="radio" name="role" value="teacher" id="teacher">
+        <label for="teacher">Teacher</label><br>
+        <input type="radio" name="role" value="student" id="student">
+        <label for="student">Student</label><br><br>
+        <button id="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- JavaScript code to show the modal pop-up and handle user input -->
+  <script>
+    // Get the modal and the submit button
+    var modal = document.getElementById("modal");
+    var submitButton = document.getElementById("submit");
+    
+    // Show the modal when the page loads
+    window.onload = function() {
+      modal.style.display = "block";
+    }
+    
+    // Handle user input when the submit button is clicked
+    submitButton.onclick = function() {
+      // Get the selected role
+      var role = document.querySelector('input[name="role"]:checked').value;
+      
+      // Redirect the user to the appropriate page based on the selected role
+      if (role === "teacher") {
+        window.location.href = "teacher.html";
+      } else if (role === "student") {
+        window.location.href = "student.html";
+      }
+      
+      // Prevent the form from submitting and the page from reloading
+      return false;
+    }
+  </script>
